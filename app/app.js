@@ -6,10 +6,11 @@ import { reduxRouteComponent } from 'redux-react-router'
 import {Provider} from 'react-redux'
 import {store} from './createStore'
 
+const routeComponent = reduxRouteComponent(store);
 export default (<Provider store={store}>
   {() =>
     <Router history={history}>
-      <Route component={reduxRouteComponent(store)}>
+      <Route component={routeComponent}>
         {routes}
       </Route>
     </Router>
