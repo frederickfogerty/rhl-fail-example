@@ -1,0 +1,5 @@
+:root {
+  --desktop-px: 1000px;
+}
+
+@custom-media --desktop (width >= 1000px);

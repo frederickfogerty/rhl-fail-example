@@ -1,0 +1,109 @@
+@import '../lib/Breakpoints.css';
+
+.comment {
+  margin-bottom: 10px;
+  color: #333;
+  transition: .3s;
+  display: flex;
+  position: relative;
+  .saving & {
+    color: #aaa;
+  }
+}
+.commentBody {
+  flex-grow: 1;
+  @media (--desktop) {
+    font-size: 1.3rem;
+  }
+}
+.commentEdit {
+  display: block;
+  width: 100%;
+  border-color: #eaeaea;
+}
+
+.save, .cancel {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 3px;
+  display: inline-block;
+}
+.save {
+  background-color: #37bc98;
+  color: white;
+}
+.cancel {
+  background-color: white;
+  border: 1px solid #eaeaea;
+  margin-left: 1rem;
+}
+
+.user {
+  font-weight: bold;
+  color: #888;
+  margin-right: 10px;
+}
+
+.dropdownTrigger {
+  color: #aaa;
+  font-size: 1.2rem;
+  @media (--desktop) {
+    opacity: 0;
+    transition: 100ms;
+    .comment:hover & {
+      opacity: 1;
+    }
+  }
+}
+.dropdown {
+  position: absolute;
+  right: -17px;
+  top: 28px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  display: none;
+  transition: 100ms;
+  z-index: 10;
+  padding: 1rem 0;
+  box-shadow: 0 0 5px #eaeaea;
+  li {
+    color: #888;
+    list-style-type: none;
+    font-size: 1.4rem;
+    font-weight: 200;
+    padding: 0 1rem;
+    &:hover {
+      background-color: #37bc98;
+      color: white;
+    }
+  }
+  .arrow, .arrow::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+  .arrow {
+    border-width: 6px;
+    margin-left: -27px;
+    border-top-width: 0;
+    border-bottom-color: #eaeaea;
+    top: -7px;
+    left: 100%;
+  }
+  .arrow::after {
+    content: " ";
+    top: 1px;
+    margin-left: -6px;
+    border-width: 6px;
+    border-top-width: 0;
+    border-bottom-color: white;
+  }
+}
+.dropdownActive {
+  display: block;
+}

@@ -1,0 +1,89 @@
+@import "../lib/Breakpoints.css";
+
+@keyframes :global(showFromBottomEnter) {
+  from { transform: translate3d(0, 100%, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+@keyframes :global(showFromBottomLeave) {
+  from { transform: translate3d(0, 0%, 0); }
+  to   { transform: translate3d(0, 100%, 0); }
+}
+@keyframes viewShowFromRightLeave {
+  to   { opacity: .75; transform: translate3d(-25%, 0, 0); }
+}
+
+:global .top-level-enter {
+  z-index: 100;
+
+  &.day-animator {
+    animation: showFromBottomEnter .5s;
+  }
+
+  transition: opacity 0.1s;
+
+  &.top-level-enter-active {
+    opacity: 1;
+  }
+}
+
+:global .top-level-leave {
+
+  &.day-animator {
+    animation: showFromBottomLeave .5s;
+  }
+
+  opacity: 1;
+  transition: opacity .5s ease;
+
+  &.top-level-leave-active {
+    opacity: 0;
+  }
+}
+
+:global #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+  @media (--desktop) {
+    height: auto;
+  }
+  > div, > div > span {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+body, html {
+  overflow-y: visible;
+  height: 100%;
+  font-size: 10px;
+  background-color: #fafafa;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato';
+  color: #434343;
+  font-size: 1.6rem;
+  user-select: text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #222;
+  line-height: 110%;
+}
+
+
+input {
+  outline: none;
+}
